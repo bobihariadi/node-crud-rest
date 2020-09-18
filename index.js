@@ -11,20 +11,54 @@ app.use(cors());
 
 app.use(basicAuth); //use basic auth
 
-var mysqlConnection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'db_restci',
-    multipleStatements: true
+// var mysqlConnection = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'root',
+//     password: '',
+//     database: 'db_restci',
+//     multipleStatements: true
+// });
+
+// mysqlConnection.connect((err) => {
+//     if (!err)
+//         console.log('DB connection succeded');
+//     else
+//         console.log('DB failed \n Error : ' + JSON.stringify(err, undefined, 2));
+// });
+
+//get all people
+const person = [
+    {
+        "id"        : "1",
+        "name"      : "Bobi",
+        "address"   : "Jakarta"
+    },
+    {
+        "id"        : "2",
+        "name"      : "Dian",
+        "address"   : "Padang"
+    },
+    {
+        "id"        : "3",
+        "name"      : "Daffa",
+        "address"   : "Pariaman"
+    },
+    {
+        "id"        : "4",
+        "name"      : "Rafif",
+        "address"   : "Lubuk Alung"
+    }
+]
+
+app.get('/people', (req, res) => {
+    res.send(person);
 });
 
-mysqlConnection.connect((err) => {
-    if (!err)
-        console.log('DB connection succeded');
-    else
-        console.log('DB failed \n Error : ' + JSON.stringify(err, undefined, 2));
+app.get('/people/:id', (req, res) => {
+    const user = person.find(u => u.id === req.params.id);
+    res.send(user);
 });
+
 
 
 // get all news
