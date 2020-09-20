@@ -11,21 +11,22 @@ app.use(cors());
 
 app.use(basicAuth); //use basic auth
 
-// var mysqlConnection = mysql.createConnection({
-//     host: 'localhost',
-//     user: 'root',
-//     password: '',
-//     database: 'db_restci',
-//     multipleStatements: true
-// });
+var mysqlConnection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'db_restci',
+    multipleStatements: true
+});
 
-// mysqlConnection.connect((err) => {
-//     if (!err)
-//         console.log('DB connection succeded');
-//     else
-//         console.log('DB failed \n Error : ' + JSON.stringify(err, undefined, 2));
-// });
+mysqlConnection.connect((err) => {
+    if (!err)
+        console.log('DB connection succeded');
+    else
+        console.log('DB failed \n Error : ' + JSON.stringify(err, undefined, 2));
+});
 
+// start sample without database
 //get all people
 const person = [
     {
@@ -58,7 +59,7 @@ app.get('/people/:id', (req, res) => {
     const user = person.find(u => u.id === req.params.id);
     res.send(user);
 });
-
+// end
 
 
 // get all news

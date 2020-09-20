@@ -15,7 +15,7 @@ function basicAuth(req, res, next) {
     }
     else if(auth) {
         var tmp = auth.split(' ');
-        var buf = new Buffer(tmp[1], 'base64');
+        var buf = Buffer.from(tmp[1], 'base64');
         var plain_auth = buf.toString(); 
         // console.log("Decoded Authorization ", plain_auth);
 
