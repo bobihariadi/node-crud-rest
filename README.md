@@ -1,6 +1,6 @@
 ## content
 express-session,
-basic-auth
+basic-auth,
 bearer-auth(jwt)
 
 To install this project
