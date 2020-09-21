@@ -1,3 +1,4 @@
+var config = require('./../config');
 
 module.exports = basicAuth;
 function basicAuth(req, res, next) {
@@ -23,7 +24,7 @@ function basicAuth(req, res, next) {
         var username = creds[0];
         var password = creds[1];
 
-        if((username == 'admin') && (password == '123')) {
+        if((username == config.username) && (password == config.password)) {
             next();
         }else {
             res.statusCode = 401; // Force them to retry authentication
