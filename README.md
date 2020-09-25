@@ -28,14 +28,12 @@ key : Content-Type
 
 value : application/json
 
-body
 
+body
 {
 
     "name"      : "Bobi",
-
     "email"     : "bobihariadi@gmail.com",
-
     "password"  : "123456"
 
 }
