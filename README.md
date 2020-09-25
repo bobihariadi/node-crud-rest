@@ -5,6 +5,10 @@ basic-auth
 
 bearer-auth(jwt)
 
+MySQL Databse
+
+Router
+
 ## To install this project
 
 npm install
