@@ -2,10 +2,10 @@
   "name": "crud",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "author": "",
   "license": "ISC",
@@ -19,5 +19,8 @@
     "gh-pages": "^3.1.0",
     "jsonwebtoken": "^8.5.1",
     "mysql": "^2.16.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }

@@ -1,8 +1,6 @@
-
 var jwt = require('jsonwebtoken');
 var config = require('../config');
 
-module.exports = bearerAuth;
 function bearerAuth(req, res, next){
     var auth = req.headers['authorization'];  
     var _return = {};
@@ -18,13 +16,14 @@ function bearerAuth(req, res, next){
     else if(auth) {
         var tmp = auth.split(' ');
         var token = tmp[1];
-               
+        
         jwt.verify(token, config.secret, function(err, decoded) {
             if (err) return res.status(500).send({ auth: false, message: 'Failed to authenticate token.' });
-              
+            
             req.session.arrdata = decoded;
             next();
         });
-
+        
     }
 }
+module.exports = bearerAuth;

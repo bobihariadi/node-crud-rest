@@ -1,6 +1,5 @@
-var config = require('./../config');
+var config = require('../config');
 
-module.exports = basicAuth;
 function basicAuth(req, res, next) {
     var auth = req.headers['authorization'];  
     var Buffer = require('safe-buffer').Buffer
@@ -19,11 +18,11 @@ function basicAuth(req, res, next) {
         var buf = Buffer.from(tmp[1], 'base64');
         var plain_auth = buf.toString(); 
         // console.log("Decoded Authorization ", plain_auth);
-
+        
         var creds = plain_auth.split(':');
         var username = creds[0];
         var password = creds[1];
-
+        
         if((username == config.username) && (password == config.password)) {
             next();
         }else {
@@ -38,3 +37,5 @@ function basicAuth(req, res, next) {
         }
     }
 };
+
+module.exports = basicAuth;
