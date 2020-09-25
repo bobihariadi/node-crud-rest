@@ -16,6 +16,7 @@ npm install
 ### rest api with basic and bearer auth
 
 username : admin
+
 password : 123
 
 ## url postman
@@ -30,12 +31,11 @@ value : application/json
 
 
 body
-{
 
+{
     "name"      : "Bobi",
     "email"     : "bobihariadi@gmail.com",
     "password"  : "123456"
-
 }
 
 
